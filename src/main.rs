@@ -1,4 +1,6 @@
 use hilbert::*;
+
+use crate::world_object::{WorldObjects, WorldObject, StrawberrieBush, AppleTree};
 mod world_object;
 
 #[derive(Debug, Clone)]
@@ -8,8 +10,14 @@ struct World {
 }
 
 impl World {
-   fn gen_world(self: &mut Self) {
-   
+   fn new() -> Self {
+      let mut tile_arr: [Tile; 10000] = Default::default();
+      for tile in tile_arr {
+         tile = Tile::new()
+      }
+      World {
+         tile_arr
+      }
    }
 }
 
@@ -25,11 +33,19 @@ struct Tile {
 
 impl Tile {
    fn new() -> Self {
-      Tile { pointer_table: vec![], object_pointer_cache: [WorldObject::new(); 4], object_cache: WorldObject::new() }
+      Tile { 
+         pointer_table: vec![], 
+         object_pointer_cache: [WorldObject::new(WorldObjects::None); 4],
+         object_cache: WorldObject::new(WorldObjects::None)
+      }
    }
 }
 
 fn main() {
    print!("test"); 
-   WorldObject::new(Wor)
+   let wo = WorldObject::new(
+      WorldObjects::Plant(
+         world_object::Plants::StrawberrieBush(
+            StrawberrieBush::new()
+         )));
 }

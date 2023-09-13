@@ -14,8 +14,16 @@ pub struct StrawberrieBush {
     berries: u8
 }
 
+impl StrawberrieBush {
+   pub fn new() -> Self {
+      StrawberrieBush {
+         berries: 0
+      }
+   }
+}
+
 #[derive(Debug, Copy, Clone)]
-pub enum Plant {
+pub enum Plants {
    GenericTree(GenericTree),
    AppleTree(AppleTree),
    StrawberrieBush(StrawberrieBush),
@@ -23,7 +31,8 @@ pub enum Plant {
 
 #[derive(Debug, Copy, Clone)]
 pub enum WorldObjects {
-   Plant(Plant),
+   Plant(Plants),
+   None
 }
 
 #[derive(Debug, Copy, Clone)]
