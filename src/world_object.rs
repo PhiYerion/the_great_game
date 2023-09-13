@@ -1,4 +1,3 @@
-
 #[derive(Debug, Copy, Clone)]
 pub struct GenericTree {
    wood: u8
@@ -50,4 +49,5 @@ impl WorldObject {
          data
       }
    }
+
 }
